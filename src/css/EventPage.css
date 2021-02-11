@@ -1,0 +1,29 @@
+.eventPage{
+    display: flex;
+    height: 40vh;
+    justify-content: flex-start;
+    background-color: gray;
+}
+.namePalet{
+    align-content: center;
+    padding-left: 40px;
+    font-size: 7vh;
+    color: White;
+}
+.ticketButton{
+    margin-left: 40px;
+    width: 120px;
+    height: 35px;
+    color: white;
+    font-weight: 300;
+    font-family: 'Times New Roman';
+    background-color: red;   
+}
+.imgpalet{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.titlePalet {
+   
+}

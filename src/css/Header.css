@@ -1,0 +1,34 @@
+.header_logo{
+    width: 120px;
+    height:80px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 0 0 5px;
+    background-color: #04223C;
+}
+.SearchBox{
+    margin-top: 15px;
+    width: 400px;
+    height: 35px;
+}
+.navbar a {
+    text-decoration: none;
+    list-style: none;
+    color: whitesmoke;
+    padding-top: 10px;
+}
+ul{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.navbar{
+    height: 40px;
+    background-color: #03192D;;
+}
