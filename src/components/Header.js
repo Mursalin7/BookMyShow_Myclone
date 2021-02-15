@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 function Header() {
   const [searchItem, setSearchItem] = useState("");
   const onChangeItem = item => {
-      console.log(item);
       setSearchItem(item);
   }
   return (

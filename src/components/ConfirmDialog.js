@@ -50,7 +50,7 @@ export default function ConfirmDialog({ selected }) {
     setOpen(false);
     history.replace("/")
   };
-
+  const Amount = 220 * selected.length
   return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -59,11 +59,16 @@ export default function ConfirmDialog({ selected }) {
         </DialogTitle>
         <DialogContent dividers >
           <Typography gutterBottom>
+          <div>
             You have booked tickets for
                             <ul >
               {selected.map((each) =>
                 <li style={{ border: '1px solid gray', color: 'lightblue', padding: '5px', backgroundColor: 'brown' }}>{each}</li>)}
             </ul>
+            <div>
+              Amount: {Amount}
+              </div>
+            </div>
           </Typography>
         </DialogContent>
       </Dialog>

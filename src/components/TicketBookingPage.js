@@ -59,6 +59,7 @@ class TicketBookingPage extends Component {
             <div>
                 <h1>{name}</h1>
                 <h3> {time}</h3>
+                <h4>Rs : 220 </h4>
                 <GridSetter
                     seat={this.state.seat}
                     available={this.state.seatAvailable}

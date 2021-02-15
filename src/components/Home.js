@@ -1,34 +1,53 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import SimpleImageSlider from "react-simple-image-slider";
+import axios from "axios";
+import '../css/Home.css';
 
-function Header() {
-  const history = useHistory();
-  const images = [
-    {
-      url:
-        "https://upload.wikimedia.org/wikipedia/en/4/46/Comicstaan_poster.jpg",
-    },
-    {
-      url:
-        "https://i.pinimg.com/236x/b1/9e/d1/b19ed1b3817f68bbb3e992ff2f88650a.jpg",
-    },
-  ];
-  const selectedEvent = (id) => {
-    const name="Comicstaan";
-    const url="https://upload.wikimedia.org/wikipedia/en/4/46/Comicstaan_poster.jpg"
-    history.replace({
-      pathname: `/movies/${name}`,
-      state: { name,url }
-    })
-  };
-  return (
-    <div>
+class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      images: [],
+      titles: []
+    }
+  }
+  componentDidMount = () => {
+    axios.request('http://www.omdbapi.com/?s=Harry_potter&apikey={APIKEY}').
+      then(response => response.data.Search)
+      .then((result) => {
+        result.map((each) => {
+          let image = {
+            url: each.Poster
+          }
+          this.setState({ images: [...this.state.images, image], titles: [...this.state.titles, each.Title] });
+        })
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+  render() {
+    const selectedEvent = (id) => {
+      const name = this.state.titles[id];
+      const url = this.state.images[id].url;
+      this.props.history.push({
+        pathname: `/movies/:${name}`,
+        state: { name, url }
+      })
+    };
+    return (
       <div>
-        <SimpleImageSlider width={1000} height={400} images={images} onClick={(idx) => selectedEvent(idx)} />
+        <div className="mainContainer">
+          {this.state.images.length > 9 ? (
+            <SimpleImageSlider width={1400} height={450} style={{ maxHeight: '100%'}} images={this.state.images} showBullets={true} showNavs={true} onClick={(idx) => selectedEvent(idx)} />)
+            : <div>Loading</div>
+          }
+        </div>
+
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Header;
+export default withRouter(Home);
