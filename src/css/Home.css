@@ -1,4 +1,6 @@
 .mainContainer{
     overflow:hidden; 
-    border:1px solid #000;
+    background-color:whitesmoke;
+    display: flex;
+    justify-content: space-around;
 }

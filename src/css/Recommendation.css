@@ -1,0 +1,15 @@
+.head{
+    float:left;
+    margin: 20px 0 20px 45px;
+}
+.recom{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.movieList{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

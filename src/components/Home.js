@@ -13,7 +13,7 @@ class Home extends Component {
     }
   }
   componentDidMount = () => {
-    axios.request('http://www.omdbapi.com/?s=Harry_potter&apikey={APIKEY}').
+    axios.request('http://www.omdbapi.com/?s=Harry_potter&apikey=5b365c1a').
       then(response => response.data.Search)
       .then((result) => {
         result.map((each) => {
@@ -39,10 +39,14 @@ class Home extends Component {
     return (
       <div>
         <div className="mainContainer">
-          {this.state.images.length > 9 ? (
-            <SimpleImageSlider width={1400} height={450} style={{ maxHeight: '100%'}} images={this.state.images} showBullets={true} showNavs={true} onClick={(idx) => selectedEvent(idx)} />)
+        <div><img src='./catchUp2.jpg' style={{ width:'400px' , height: '450px' , maxHeight:'100%'}} alt='catchUp' /></div>
+        <div>
+        {this.state.images.length > 9 ? (
+           <SimpleImageSlider className="slider" width={600} height={450} style={{ maxHeight: '100%'}} images={this.state.images} showBullets={true} showNavs={true} onClick={(idx) => selectedEvent(idx)} />)
             : <div>Loading</div>
           }
+        </div>
+        <div><img src='./catchUp.jpg' alt='catchUp' style={{ width:'400px' , height: '450px' , maxHeight:'100%'}} /></div>
         </div>
 
       </div>
