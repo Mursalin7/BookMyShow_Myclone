@@ -13,7 +13,7 @@ class Home extends Component {
     }
   }
   componentDidMount = () => {
-    axios.request('http://www.omdbapi.com/?s=Harry_potter&apikey=5b365c1a').
+    axios.request('https://www.omdbapi.com/?s=Harry_potter&apikey=5b365c1a').
       then(response => response.data.Search)
       .then((result) => {
         result.map((each) => {

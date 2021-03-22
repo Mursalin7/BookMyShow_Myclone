@@ -7,7 +7,7 @@ function Recommendation() {
   const [movieList, setMovieList] = useState([]);
   useEffect(() => {
     axios
-      .request("http://www.omdbapi.com/?s=avengers&apikey=5b365c1a")
+      .request("https://www.omdbapi.com/?s=avengers&apikey=5b365c1a")
       .then(response => response.data.Search)
       .then(data => {
         console.log(data);

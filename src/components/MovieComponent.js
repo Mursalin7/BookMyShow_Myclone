@@ -6,7 +6,7 @@ function MovieComponent({ title, poster, id }) {
   const [genre, setGenre] = useState("");
   useEffect(() => {
     axios
-      .request(`http://www.omdbapi.com/?i=${id}&apikey=5b365c1a`)
+      .request(`https://www.omdbapi.com/?i=${id}&apikey=5b365c1a`)
       .then(response => response.data.Genre)
       .then(data => {
         setGenre(data);
